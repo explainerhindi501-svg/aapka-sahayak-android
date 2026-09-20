@@ -35,7 +35,13 @@ jobs:
 
           mkdir -p project
           unzip -o "$ZIP_FILE" -d project
-
+          
+      - name: Install Node dependencies
+        working-directory: project
+        run: npm install
+      - name: Sync Capacitor Android
+        working-directory: project
+        run: npx cap sync android
       - name: Find Android project
         run: |
           GRADLEW=$(find project -type f -name "gradlew" | head -n 1)

@@ -38,7 +38,7 @@ jobs:
           
       - name: Install Node dependencies
         working-directory: project
-        run: npm install
+        run: npm install --legacy-peer-deps
       - name: Sync Capacitor Android
         working-directory: project
         run: npx cap sync android
